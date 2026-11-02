@@ -1137,6 +1137,12 @@ int ksu_handle_susfs_cmd(unsigned int cmd, void __user **arg)
         susfs_add_sus_kstat(arg);
         return 0;
     }
+#ifdef CONFIG_KSU_SUSFS_SUS_KSTAT_REDIRECT
+    case CMD_SUSFS_ADD_SUS_KSTAT_REDIRECT: {
+        susfs_add_sus_kstat_redirect(arg);
+        return 0;
+    }
+#endif
 #endif //#ifdef CONFIG_KSU_SUSFS_SUS_KSTAT
 #ifdef CONFIG_KSU_SUSFS_SPOOF_UNAME
     case CMD_SUSFS_SET_UNAME: {
